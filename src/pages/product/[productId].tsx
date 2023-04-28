@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import Navbar from '@/components/Navbar'
+import Head from 'next/head'
 
 export default function ProductItem (): JSX.Element {
   const { query: { productId } } = useRouter()
@@ -17,7 +17,11 @@ export default function ProductItem (): JSX.Element {
 
   return (
     <div>
-        <Navbar />
+      <Head>
+        <title>Product</title>
+        <link rel="shortcut icon" href="/faviconjm.ico" type="image/x-icon" />
+        <meta name="description" content="Pagina detallada del producto" />
+      </Head>
         <p>Pagina del producto: { productId }</p>
         {product?.name}
     </div>

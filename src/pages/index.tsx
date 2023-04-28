@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Navbar from '@/components/Navbar'
 import { useEffect, useState } from 'react'
 
 export default function Home (): JSX.Element {
@@ -20,12 +19,12 @@ export default function Home (): JSX.Element {
   }, [])
 
   return (
-    <main className="h-screen w-full">
+    <main className="h-full w-full">
       <Head>
-        <title>Paltas</title>
-        <link rel="shortcut icon" href="faviconjm.ico" type="image/x-icon" />
+        <title>Home - Paltas</title>
+        <meta name="description" content="App de diferentes paltas" />
       </Head>
-      <Navbar />
+      {/* <Navbar /> */}
       {productList?.map(item => (
         <div key={item.id}>{item.name}</div>
       ))}
