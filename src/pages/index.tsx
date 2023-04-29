@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import Card from '@/components/Card'
 
 export default function Home (): JSX.Element {
   const [productList, setProductList] = useState<TProduct[]>([])
@@ -24,10 +25,11 @@ export default function Home (): JSX.Element {
         <title>Home - Paltas</title>
         <meta name="description" content="App de diferentes paltas" />
       </Head>
-      {/* <Navbar /> */}
-      {productList?.map(item => (
-        <div key={item.id}>{item.name}</div>
-      ))}
+      <ul className='w-full flex justify-center align-center gap-5 p-2 flex-wrap'>
+        {productList?.map(item => (
+          <li key={item.id}><Card item={item} /></li>
+        ))}
+      </ul>
     </main>
   )
 }
