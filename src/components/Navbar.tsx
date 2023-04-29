@@ -13,7 +13,7 @@ export default function Navbar (): JSX.Element {
             </li>
             <li>
                 <Link href='/about' className='border-2 rounded-md p-2 transition-all ease duration-300 hover:border-slate-800'>
-                    About us
+                    About
                 </Link>
             </li>
         </ul>
