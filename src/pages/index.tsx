@@ -1,23 +1,9 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
 import Card from '@/components/Card'
+import { useGetAllPaltas } from '@/hooks/useGetAllPaltas'
 
 export default function Home (): JSX.Element {
-  const [productList, setProductList] = useState<TProduct[]>([])
-
-  useEffect(() => {
-    const getProducts = async (): Promise<void> => {
-      try {
-        const response = await fetch('/api/avo')
-        const data = await response.json()
-        setProductList(data.data)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-    getProducts()
-      .catch(console.error)
-  }, [])
+  const productList = useGetAllPaltas()
 
   return (
     <main className="h-full w-full">
