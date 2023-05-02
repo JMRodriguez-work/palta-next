@@ -7,7 +7,7 @@ const cartReducer = createSlice({
     addToCart (state, action: { payload: TProduct }) {
       const item = action.payload
       const itemInCart = state.find(i => i.id === item.id)
-      if (itemInCart != null) return
+      if (itemInCart != null) return state
       state.push(item)
     }
   }

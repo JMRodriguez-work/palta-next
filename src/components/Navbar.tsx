@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined'
+import { useSelector } from 'react-redux'
+import type { RootState } from '@/redux/store'
 
 export default function Navbar (): JSX.Element {
+  const cart = useSelector((state: RootState) => state.cart)
   return (
     <nav className='flex py-6 items-center justify-between px-5 shadow-md shadow-slate-900'>
         <h1>PALTA APP</h1>
@@ -20,7 +23,7 @@ export default function Navbar (): JSX.Element {
             <li className='relative cursor-pointer'>
                 <Link href='/cart'>
                         <ShoppingBagOutlinedIcon className='text-4xl' aria-label='cart button' />
-                        <span className='absolute bottom-4 px-1 left-6 bg-black rounded'>0</span>
+                        <span className='absolute bottom-4 px-1 left-6 bg-black rounded'>{cart.length}</span>
                 </Link>
             </li>
         </ul>
