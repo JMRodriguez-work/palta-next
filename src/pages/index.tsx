@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Card from '@/components/Card'
 import { useGetAllPaltas } from '@/hooks/useGetAllPaltas'
+import Link from 'next/link'
 
 export default function Home (): JSX.Element {
   const productList = useGetAllPaltas()
@@ -13,7 +14,9 @@ export default function Home (): JSX.Element {
       </Head>
       <ul className='w-full flex justify-center align-center gap-5 p-2 flex-wrap'>
         {productList?.map(item => (
-          <li key={item.id}><Card item={item} /></li>
+          <Link key={item.id} href={`/product/${item.id}`}>
+            <li><Card item={item} /></li>
+          </Link>
         ))}
       </ul>
     </main>
