@@ -9,9 +9,13 @@ const cartReducer = createSlice({
       const itemInCart = state.find(i => i.id === item.id)
       if (itemInCart != null) return state
       state.push(item)
+    },
+    removeFromCart (state, action: { payload: TProduct['id'] }) {
+      const id = action.payload
+      return state.filter(i => i.id !== id)
     }
   }
 })
 
-export const { addToCart } = cartReducer.actions
+export const { addToCart, removeFromCart } = cartReducer.actions
 export default cartReducer.reducer
