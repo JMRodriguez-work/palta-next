@@ -1,10 +1,21 @@
 import Head from 'next/head'
 import Card from '@/components/Card'
-import { useGetAllPaltas } from '@/hooks/useGetAllPaltas'
+// import { useGetAllPaltas } from '@/hooks/useGetAllPaltas'
 import Link from 'next/link'
+import type { GetStaticProps } from 'next'
 
-export default function Home (): JSX.Element {
-  const productList = useGetAllPaltas()
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch('https://palta-next.vercel.app/api/avo')
+  const { data: productList }: TAPIAvoResponse = await res.json()
+  return {
+    props: {
+      productList
+    }
+  }
+}
+
+export default function Home ({ productList }: { productList: TProduct[] }): JSX.Element {
+  // const productList = useGetAllPaltas()
 
   return (
     <main className="h-full w-full">

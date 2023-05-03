@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function ProductInfo ({ imgSrc, imgAlt, product, handleAddToCart, isInCart }: Props): JSX.Element {
-  const buttonStyles = isInCart ? 'bg-red-400 w-fit p-2 rounded mt-4' : 'bg-green-700 w-fit p-2 rounded mt-4'
+  const buttonStyles = isInCart ? 'bg-red-400 w-fit p-2 rounded mt-4' : 'bg-green-700 w-fit p-2 rounded mt-4 transition-all ease duration-200 hover:bg-green-500'
   const buttonText = isInCart ? 'IN CART' : 'ADD TO CART'
 
   return (

@@ -23,7 +23,7 @@ export default function Navbar (): JSX.Element {
             <li className='relative cursor-pointer'>
                 <Link href='/cart'>
                         <ShoppingBagOutlinedIcon className='text-4xl' aria-label='cart button' />
-                        <span className='absolute bottom-4 px-1 left-6 bg-black rounded'>{cart.length}</span>
+                        <span className='absolute bottom-4 px-1 left-4 bg-black rounded'>{cart.length}</span>
                 </Link>
             </li>
         </ul>
